@@ -26,10 +26,9 @@ public class SpecialInventoryOpener implements InventoryOpener {
 
     @Override
     public Inventory open(SmartInventory inv, Player player) {
-        InventoryManager manager = inv.getManager();
         Inventory handle = Bukkit.createInventory(player, inv.getType(), inv.getTitle());
 
-        fill(handle, manager.getContents(player).get());
+        fill(handle, InventoryManager.getContents(player).get());
 
         player.openInventory(handle);
         return handle;
